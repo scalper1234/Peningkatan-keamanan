@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>System Scan</title>
+    <style>
+        body {
+            background: black;
+            color: lime;
+            font-family: Courier;
+            margin: 0;
+            padding: 20px;
+        }
+        .scan-text {
+            margin: 10px 0;
+        }
+        .virus {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 SYSTEM VIRUS SCAN</h1>
+    <div id="scanResults"></div>
+
+    <script>
+        const messages = [
+            "Scanning system files...",
+            "Checking registry...",
+            "Analyzing processes...",
+            "YOU ARE AN IDIOT!",
+            "Virus detected: IDIOT.EXE",
+            "Just kidding! 😂",
+            "This is a prank!",
+            "Your computer is safe!",
+            "Made by your friend :)"
+        ];
+
+        let index = 0;
+        const scanResults = document.getElementById('scanResults');
+
+        function showMessage() {
+            if (index < messages.length) {
+                const div = document.createElement('div');
+                div.className = 'scan-text';
+                div.textContent = messages[index];
+                
+                if (messages[index].includes('IDIOT') || messages[index].includes('Virus')) {
+                    div.className = 'virus';
+                }
+                
+                scanResults.appendChild(div);
+                scanResults.scrollTop = scanResults.scrollHeight;
+                index++;
+                setTimeout(showMessage, 1000);
+            }
+        }
+
+        // Start the animation
+        showMessage();
+    </script>
+</body>
+</html>
